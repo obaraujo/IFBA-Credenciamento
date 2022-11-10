@@ -26,7 +26,9 @@ export function ButtonPresent({ checkin_code, day }: buttonProps) {
 
   function handleClick(e: event) {
     e.currentTarget.classList.add('loading')
-    e.currentTarget.setAttribute('disabled', "true")
+    document.querySelectorAll('button').forEach(bt => {
+      bt.setAttribute('disabled', "true")
+    })
     const formData = new FormData()
     formData.append("checkin_code", checkin_code.toString())
     formData.append("day_" + day, isPresent ? "0" : "1")
@@ -52,8 +54,10 @@ export function ButtonPresent({ checkin_code, day }: buttonProps) {
         }
       }).then(r => {
         setIsPresent(state === "1")
+        document.querySelectorAll('button').forEach(bt => {
+          bt.removeAttribute('disabled')
+        })
         e.target.classList.remove('loading')
-        e.target.removeAttribute('disabled')
       })
     })
   }
