@@ -3,28 +3,11 @@ header("Access-Control-Allow-Origin: *");
 $information_complete = array_key_exists('checkin_code', $_POST);
 
 if ($information_complete) {
-  $is_localhost = $_SERVER['HTTP_HOST'] === "localhost";
-
-  $hostname = $is_localhost ? "localhost" : "mysql";
-  $username = $is_localhost ? "root" : "u825110536_stagon";
-  $password = $is_localhost ? '' : ">26QPMeytC0s";
-  $database =  $is_localhost ? "semanapreta" : "u825110536_stagon";
-
-  $conn = new mysqli($hostname, $username, $password);
-
-  if ($conn->query("CREATE DATABASE $database;") === TRUE) {
-    $conn->select_db($database);
-    $conn->query(
-      "CREATE TABLE IF NOT EXISTS `present` (
-      `checkin_code` VARCHAR(20) NOT NULL DEFAULT '0',
-      `day_16` VARCHAR(1) NOT NULL DEFAULT '0',
-      `day_17` VARCHAR(1) NOT NULL DEFAULT '0',
-      primary key(`checkin_code`)
-      );"
-    );
-  } else {
-    $conn->select_db($database);
-  }
+  /**
+   * ´esse arquivo retorna a instancia do mysqli, seguindo assim:
+   * $conn = new mysqli($hostname, $username, $password, $database);
+   */
+  include('./connect-db.php');
 
   $sql = "INSERT INTO `present` (`checkin_code`) VALUES ('" . $_POST['checkin_code'] . "');";
   $result = $conn->query($sql);
