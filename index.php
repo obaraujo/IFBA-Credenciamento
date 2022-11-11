@@ -7,7 +7,7 @@ if ($information_complete) {
 
   $hostname = $is_localhost ? "localhost" : "mysql";
   $username = $is_localhost ? "root" : "u825110536_stagon";
-  $password = $is_localhost ? "" : ">26QPMeytC0s";
+  $password = $is_localhost ? '' : ">26QPMeytC0s";
   $database =  $is_localhost ? "semanapreta" : "u825110536_stagon";
 
   $conn = new mysqli($hostname, $username, $password);
