@@ -4,7 +4,7 @@ $information_complete = array_key_exists('checkin_code', $_POST);
 
 if ($information_complete) {
   /**
-   * ´esse arquivo retorna a instancia do mysqli, seguindo assim:
+   * Esse arquivo retorna a instancia do mysqli, seguindo assim:
    * $conn = new mysqli($hostname, $username, $password, $database);
    */
   include('./connect-db.php');
