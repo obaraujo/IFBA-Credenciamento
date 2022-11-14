@@ -37,7 +37,6 @@ input {
 }
 
 .table {
-  overflow: scroll;
   width: 70%;
   height: calc(100vh - 35% - 90px);
 }
