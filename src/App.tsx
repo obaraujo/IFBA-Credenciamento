@@ -17,7 +17,7 @@ export function App() {
   useEffect(() => {
     fetch("https://www.even3.com.br/api/v1/attendees/", {
       headers: {
-        "Authorization-Token": "b21206c6-fb42-48d3-8195-32812b59378a"
+        "Authorization-Token": "8c5d7660-4f25-4ec9-a7f3-0c36babcf517"
       }
     }).then(r => r.json()).then(r => {
       const attendeeArray: attendeeProps[] = r.data;
